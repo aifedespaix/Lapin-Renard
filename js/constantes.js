@@ -11,7 +11,7 @@ const FEMALE = "female";
  * @return Valeur random de X Conforme à la balise area
  */
 function randomX() {
-	return parseInt(Math.random()*parseInt($("#area").css('width'), 10));
+    return parseInt(Math.random() * parseInt($("#area").css('width'), 10));
 }
 
 /**
@@ -19,17 +19,17 @@ function randomX() {
  * @return Valeur random de Y Conforme à la balise area
  */
 function randomY() {
-	return parseInt(Math.random()*parseInt($("#area").css('height'), 10));
+    return parseInt(Math.random() * parseInt($("#area").css('height'), 10));
 }
 
 function randomDirection() {
-	return parseInt(Math.random()*4)+1;
+    return parseInt(Math.random() * 4) + 1;
 }
 
 function randomSexe() {
-	return parseInt(Math.random()*2)+1 == 1 ? MALE : FEMALE;
+    return parseInt(Math.random() * 2) + 1 == 1 ? MALE : FEMALE;
 }
 
 function substrpx(sch) {
-	return sch.substr(0, sch.length-2);
+    return sch.substr(0, sch.length - 2);
 }

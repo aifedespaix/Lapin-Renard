@@ -14,23 +14,31 @@ class Da_Forest {
     this.foretTime = null;
     this.tour = 0;
 
-    this.nbRen = 0;
-    this.nbLap = 0;
+    this._nbRen = 0;
+    this._nbLap = 0;
+  }
+  
+  get nbLap() {
+    return this._nbLap;
   }
 
-  get nbLap() {
-    return this.nbLap;
+  set nbLap(value) {
+    this._nbLap = value;
   }
 
   get nbRen() {
-    return this.nbRen;
+    return this._nbRen;
+  }
+
+  set nbRen(value) {
+    this._nbRen = value;
   }
 
   ajouteLapin(nbr) {
     var i;
     for(i=0; i<nbr; i++) {
       window.objets.push(new Lapin());
-      this.nbLap++;
+      this._nbLap++;
     }
   }
 
@@ -54,7 +62,7 @@ class Da_Forest {
     }
     this.tour++;
 
-    if(this.tour%window.reproductionLap == 0 && this.nbLap > 1) window.foret.ajouteLapin(1);
+    if(this.tour%window.reproductionLap == 0 && this._nbLap > 1) window.foret.ajouteLapin(1);
     if(this.tour%(window.reproductionLap*10) == 0 && this.nbRen > 1) window.foret.ajouteRenard(1);
 
     if(window.alertWin) {
@@ -62,7 +70,7 @@ class Da_Forest {
         alert("Lapins Win !");
         window.alertWin = false;
       }
-      else if(this.nbLap == 0) {
+      else if(this._nbLap == 0) {
         alert("Renards Win !");
         window.alertWin = false;
       }
@@ -81,6 +89,7 @@ class Da_Forest {
     var f = this.actionnerObjets;
     this.foretTime = setInterval(f, 100);
   }
+
   stoper() {
     clearInterval(this.foretTime);
   }
